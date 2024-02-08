@@ -21,6 +21,7 @@ export function App() {
 
     function handleSearch(e: ChangeEvent<HTMLInputElement>){
         const query = e.target.value
+        
         setSearch(query)
     }
 
@@ -45,7 +46,7 @@ export function App() {
         localStorage.setItem('notes', JSON.stringify(notesArray))
     }
 
-    const filteredNotes = search === '' ? notes.filter(note => note.content.toLocaleLowerCase().includes(search.toLocaleLowerCase())) : notes
+    const filteredNotes = search !== '' ? notes.filter(note => note.content.toLocaleLowerCase().includes(search.toLocaleLowerCase())) : notes
     return (
         <div className='mx-auto max-w-6xl my-12 space-y-6 px-5 md:px-0'>
             <img src={Logo} alt="nlw-expert" />
